@@ -415,6 +415,92 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
 
+    /* SAMPLES */
+
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .samples-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .samples-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sample-card {
+      border-radius: var(--radius-md);
+      border: 1px solid #e5e5ea;
+      background: #ffffff;
+      padding: 0.85rem 0.9rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .sample-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a1a1a6;
+    }
+
+    .sample-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .sample-visual {
+      border-radius: 12px;
+      border: 1px solid #e5e5ea;
+      background: linear-gradient(135deg, #f2f2f7 0%, #ffffff 40%, #e5f0ff 100%);
+      padding: 0.6rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sample-visual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .sample-tag {
+      font-size: 0.7rem;
+      color: #6e6e73;
+      margin-bottom: 0.15rem;
+    }
+
+    .sample-box {
+      border-radius: 9px;
+      background: #f2f2f7;
+      height: 38px;
+    }
+
+    .sample-box-2 {
+      height: 26px;
+      margin-top: 0.3rem;
+    }
+
+    .sample-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
     /* CONTACT */
 
     #contact .contact-card {
@@ -487,6 +573,7 @@
         <nav>
           <a href="#about">About</a>
           <a href="#services">Services</a>
+          <a href="#samples">Samples</a>
           <a href="#contact">Contact</a>
           <a href="#contact" class="nav-cta">Work with me</a>
         </nav>
@@ -641,6 +728,110 @@
           </div>
         </section>
 
+        <!-- SAMPLES -->
+        <section id="samples" class="reveal reveal-delay-2">
+          <div class="section-label">Sample work</div>
+          <h2 class="section-title">What the work can look like.</h2>
+          <p class="section-sub">
+            These are representative examples to show the level of polish you can expect.
+            Real projects will be tailored to your brand, content, and audience.
+          </p>
+
+          <div class="samples-grid">
+            <!-- Sample 1: Logo cleanup -->
+            <article class="sample-card">
+              <div class="sample-label">Logo cleanup</div>
+              <div class="sample-name">“Cedar Lane Studio” mark</div>
+              <div class="sample-visual">
+                <div class="sample-visual-row">
+                  <div>
+                    <div class="sample-tag">Before</div>
+                    <div class="sample-box"></div>
+                    <div class="sample-box sample-box-2"></div>
+                  </div>
+                  <div>
+                    <div class="sample-tag">After</div>
+                    <div class="sample-box"></div>
+                    <div class="sample-box sample-box-2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sample-caption">
+                Rough, low-res logo redrawn as a clean vector-style mark, with spacing,
+                line weight, and export sizes tuned for web and print.
+              </div>
+            </article>
+
+            <!-- Sample 2: PDF summary -->
+            <article class="sample-card">
+              <div class="sample-label">PDF summary</div>
+              <div class="sample-name">“Launch Playbook” outline</div>
+              <div class="sample-visual">
+                <div class="sample-visual-row">
+                  <div>
+                    <div class="sample-tag">Before</div>
+                    <div class="sample-box"></div>
+                    <div class="sample-box sample-box-2"></div>
+                  </div>
+                  <div>
+                    <div class="sample-tag">After</div>
+                    <div class="sample-box"></div>
+                    <div class="sample-box sample-box-2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sample-caption">
+                Dense, 20+ page document turned into a concise summary with key sections,
+                bullets, and a one-page “quick read” overview.
+              </div>
+            </article>
+
+            <!-- Sample 3: Headshot -->
+            <article class="sample-card">
+              <div class="sample-label">AI headshot</div>
+              <div class="sample-name">Profile refresh</div>
+              <div class="sample-visual">
+                <div class="sample-visual-row">
+                  <div>
+                    <div class="sample-tag">Original</div>
+                    <div class="sample-box"></div>
+                  </div>
+                  <div>
+                    <div class="sample-tag">Refined</div>
+                    <div class="sample-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sample-caption">
+                Casual phone photo cleaned up into neutral, profile-friendly portraits
+                suitable for LinkedIn, websites, and CVs.
+              </div>
+            </article>
+
+            <!-- Sample 4: Captions -->
+            <article class="sample-card">
+              <div class="sample-label">Captioned clip</div>
+              <div class="sample-name">Vertical video snippet</div>
+              <div class="sample-visual">
+                <div class="sample-visual-row">
+                  <div>
+                    <div class="sample-tag">Raw clip</div>
+                    <div class="sample-box"></div>
+                  </div>
+                  <div>
+                    <div class="sample-tag">With captions</div>
+                    <div class="sample-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sample-caption">
+                Simple vertical video given subtle titling and captions so it works
+                both with and without sound on TikTok, Reels, or Shorts.
+              </div>
+            </article>
+          </div>
+        </section>
+
         <!-- CONTACT -->
         <section id="contact" class="reveal reveal-delay-3">
           <div class="section-label">Contact</div>
@@ -699,4 +890,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
