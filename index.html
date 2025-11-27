@@ -448,6 +448,12 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
 
+    .sample-card:hover {
+      transform: translateY(-2px);
+      border-color: #c7c7cc;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
     .sample-label {
       font-size: 0.78rem;
       text-transform: uppercase;
@@ -464,41 +470,22 @@
     .sample-visual {
       border-radius: 12px;
       border: 1px solid #e5e5ea;
-      background: linear-gradient(135deg, #f2f2f7 0%, #ffffff 40%, #e5f0ff 100%);
-      padding: 0.6rem 0.65rem;
+      background: #fbfbfd;
+      padding: 0.5rem;
       display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .sample-visual-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-
-    .sample-tag {
-      font-size: 0.7rem;
-      color: #6e6e73;
-      margin-bottom: 0.15rem;
-    }
-
-    .sample-box {
-      border-radius: 9px;
-      background: #f2f2f7;
-      height: 38px;
-    }
-
-    .sample-box-2 {
-      height: 26px;
-      margin-top: 0.3rem;
+      align-items: center;
+      justify-content: center;
     }
 
     .sample-caption {
       font-size: 0.8rem;
       color: var(--text-muted);
+    }
+
+    .sample-svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* CONTACT */
@@ -602,7 +589,7 @@
             </div>
           </div>
 
-          <!-- Visual mock preview instead of "typical project" copy -->
+          <!-- Visual mock preview -->
           <aside class="hero-preview">
             <div class="preview-header">
               <div class="preview-title">Sample workspace</div>
@@ -743,22 +730,28 @@
               <div class="sample-label">Logo cleanup</div>
               <div class="sample-name">“Cedar Lane Studio” mark</div>
               <div class="sample-visual">
-                <div class="sample-visual-row">
-                  <div>
-                    <div class="sample-tag">Before</div>
-                    <div class="sample-box"></div>
-                    <div class="sample-box sample-box-2"></div>
-                  </div>
-                  <div>
-                    <div class="sample-tag">After</div>
-                    <div class="sample-box"></div>
-                    <div class="sample-box sample-box-2"></div>
-                  </div>
-                </div>
+                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background split -->
+                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
+                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
+                  <!-- BEFORE -->
+                  <text x="24" y="26" font-size="10" fill="#a1a1a6">Before</text>
+                  <rect x="22" y="36" width="90" height="50" rx="8" fill="#e5e5ea" />
+                  <text x="29" y="63" font-size="14" fill="#8e8e93" font-weight="600">cedar lane</text>
+                  <text x="29" y="78" font-size="10" fill="#c7c7cc">studio</text>
+                  <!-- AFTER -->
+                  <text x="154" y="26" font-size="10" fill="#a1a1a6">After</text>
+                  <rect x="148" y="36" width="90" height="50" rx="10" fill="#ffffff" stroke="#d2d2d7" />
+                  <!-- Simple logo mark -->
+                  <circle cx="162" cy="61" r="9" fill="#0071e3" />
+                  <path d="M158 61 L161 64 L166 58" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                  <text x="177" y="58" font-size="13" fill="#1d1d1f" font-weight="600">Cedar Lane</text>
+                  <text x="177" y="73" font-size="9" fill="#8e8e93">Studio</text>
+                </svg>
               </div>
               <div class="sample-caption">
-                Rough, low-res logo redrawn as a clean vector-style mark, with spacing,
-                line weight, and export sizes tuned for web and print.
+                Rough, low-res logo redrawn as a clean wordmark with a small icon, tuned for clarity
+                and export at multiple sizes.
               </div>
             </article>
 
@@ -767,22 +760,36 @@
               <div class="sample-label">PDF summary</div>
               <div class="sample-name">“Launch Playbook” outline</div>
               <div class="sample-visual">
-                <div class="sample-visual-row">
-                  <div>
-                    <div class="sample-tag">Before</div>
-                    <div class="sample-box"></div>
-                    <div class="sample-box sample-box-2"></div>
-                  </div>
-                  <div>
-                    <div class="sample-tag">After</div>
-                    <div class="sample-box"></div>
-                    <div class="sample-box sample-box-2"></div>
-                  </div>
-                </div>
+                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
+                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
+                  <!-- BEFORE document -->
+                  <text x="24" y="22" font-size="10" fill="#a1a1a6">Before</text>
+                  <rect x="22" y="30" width="90" height="80" rx="8" fill="#ffffff" stroke="#e5e5ea" />
+                  <!-- many lines -->
+                  <rect x="28" y="38" width="60" height="6" rx="3" fill="#e5e5ea" />
+                  <rect x="28" y="50" width="70" height="5" rx="2.5" fill="#e5e5ea" />
+                  <rect x="28" y="60" width="65" height="5" rx="2.5" fill="#e5e5ea" />
+                  <rect x="28" y="70" width="72" height="5" rx="2.5" fill="#e5e5ea" />
+                  <rect x="28" y="80" width="68" height="5" rx="2.5" fill="#e5e5ea" />
+                  <rect x="28" y="90" width="74" height="5" rx="2.5" fill="#e5e5ea" />
+                  <!-- AFTER summary -->
+                  <text x="154" y="22" font-size="10" fill="#a1a1a6">After</text>
+                  <rect x="148" y="30" width="90" height="80" rx="8" fill="#ffffff" stroke="#d2d2d7" />
+                  <!-- title -->
+                  <rect x="154" y="38" width="55" height="7" rx="3.5" fill="#0071e3" />
+                  <!-- bullets -->
+                  <circle cx="158" cy="56" r="2" fill="#d1d1d6" />
+                  <rect x="164" y="53" width="55" height="5" rx="2.5" fill="#e5e5ea" />
+                  <circle cx="158" cy="68" r="2" fill="#d1d1d6" />
+                  <rect x="164" y="65" width="48" height="5" rx="2.5" fill="#e5e5ea" />
+                  <circle cx="158" cy="80" r="2" fill="#d1d1d6" />
+                  <rect x="164" y="77" width="52" height="5" rx="2.5" fill="#e5e5ea" />
+                </svg>
               </div>
               <div class="sample-caption">
-                Dense, 20+ page document turned into a concise summary with key sections,
-                bullets, and a one-page “quick read” overview.
+                Dense, multi-page content reduced to a structured overview with clear title and
+                three main sections of takeaways.
               </div>
             </article>
 
@@ -791,42 +798,57 @@
               <div class="sample-label">AI headshot</div>
               <div class="sample-name">Profile refresh</div>
               <div class="sample-visual">
-                <div class="sample-visual-row">
-                  <div>
-                    <div class="sample-tag">Original</div>
-                    <div class="sample-box"></div>
-                  </div>
-                  <div>
-                    <div class="sample-tag">Refined</div>
-                    <div class="sample-box"></div>
-                  </div>
-                </div>
+                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
+                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
+                  <!-- Original -->
+                  <text x="24" y="24" font-size="10" fill="#a1a1a6">Original</text>
+                  <rect x="30" y="36" width="54" height="54" rx="12" fill="#e5e5ea" />
+                  <circle cx="57" cy="58" r="11" fill="#d1d1d6" />
+                  <rect x="42" y="70" width="30" height="10" rx="5" fill="#d1d1d6" />
+                  <!-- Refined -->
+                  <text x="154" y="24" font-size="10" fill="#a1a1a6">Refined</text>
+                  <rect x="150" y="30" width="80" height="70" rx="14" fill="#ffffff" stroke="#d2d2d7" />
+                  <circle cx="190" cy="58" r="15" fill="#e5f0ff" />
+                  <circle cx="190" cy="54" r="7" fill="#ffffff" />
+                  <rect x="176" y="70" width="28" height="6" rx="3" fill="#d1e2ff" />
+                  <rect x="168" y="80" width="44" height="4" rx="2" fill="#e5e5ea" />
+                </svg>
               </div>
               <div class="sample-caption">
-                Casual phone photo cleaned up into neutral, profile-friendly portraits
-                suitable for LinkedIn, websites, and CVs.
+                Casual phone photo turned into a clean profile-style headshot with neutral framing
+                and simple background.
               </div>
             </article>
 
-            <!-- Sample 4: Captions -->
+            <!-- Sample 4: Captioned clip -->
             <article class="sample-card">
               <div class="sample-label">Captioned clip</div>
               <div class="sample-name">Vertical video snippet</div>
               <div class="sample-visual">
-                <div class="sample-visual-row">
-                  <div>
-                    <div class="sample-tag">Raw clip</div>
-                    <div class="sample-box"></div>
-                  </div>
-                  <div>
-                    <div class="sample-tag">With captions</div>
-                    <div class="sample-box"></div>
-                  </div>
-                </div>
+                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
+                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
+                  <!-- Raw clip -->
+                  <text x="24" y="22" font-size="10" fill="#a1a1a6">Raw clip</text>
+                  <rect x="38" y="30" width="40" height="80" rx="8" fill="#e5e5ea" />
+                  <rect x="44" y="60" width="28" height="10" rx="5" fill="#d1d1d6" />
+                  <!-- With captions -->
+                  <text x="154" y="22" font-size="10" fill="#a1a1a6">With captions</text>
+                  <rect x="170" y="24" width="40" height="92" rx="10" fill="#ffffff" stroke="#d2d2d7" />
+                  <!-- title bar -->
+                  <rect x="174" y="29" width="32" height="6" rx="3" fill="#0071e3" />
+                  <!-- "video" area -->
+                  <rect x="176" y="40" width="28" height="28" rx="6" fill="#f2f2f7" />
+                  <!-- captions -->
+                  <rect x="176" y="74" width="28" height="5" rx="2.5" fill="#e5e5ea" />
+                  <rect x="176" y="82" width="28" height="5" rx="2.5" fill="#e5e5ea" />
+                  <rect x="176" y="90" width="24" height="4" rx="2" fill="#e5e5ea" />
+                </svg>
               </div>
               <div class="sample-caption">
-                Simple vertical video given subtle titling and captions so it works
-                both with and without sound on TikTok, Reels, or Shorts.
+                Simple vertical video given a title bar and subtitles so it works both with and
+                without sound on TikTok, Reels, or Shorts.
               </div>
             </article>
           </div>
@@ -890,4 +912,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
