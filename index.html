@@ -2,24 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>DigitalFoundry Studio – Modern Design & Content Support</title>
+  <title>DigitalFoundry Studio – Design & Content Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="DigitalFoundry Studio helps creators and small businesses sharpen logos, simplify documents, and polish visuals with a modern, minimal, and considered approach." />
+  <meta name="description" content="DigitalFoundry Studio helps creators and small businesses clean up logos, simplify documents, and polish visuals with a calm, minimal approach." />
   <style>
     :root {
-      /* Luxury-inspired palette: deep green, rich red, warm neutrals */
-      --bg: #10130f;              /* deep background */
-      --shell: #f5f1e8;           /* warm cream */
-      --surface: #fdfaf5;         /* light panel */
-      --surface-soft: #f8f2e9;
-      --text-main: #17130f;
-      --text-muted: #7a7263;
-      --accent-green: #143526;    /* deep green */
-      --accent-red: #b02a30;      /* rich red */
-      --border: #e1d7c6;
-      --radius-xl: 26px;
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text-main: #1d1d1f;
+      --text-muted: #6e6e73;
+      --accent: #0071e3;   /* Apple-ish blue */
+      --border: #d2d2d7;
       --radius-lg: 18px;
       --radius-md: 12px;
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.08);
     }
 
     * { box-sizing: border-box; }
@@ -29,42 +25,38 @@
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #2a3226 0, #050806 48%, #050605 100%);
+      background: var(--bg);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
       scroll-behavior: smooth;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* LAYOUT SHELL */
-
-    .page-shell {
-      min-height: 100vh;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      padding: 1.8rem 1.2rem;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .frame {
-      background: radial-gradient(circle at top, #fdfaf5 0, #f3ece1 65%);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(152, 132, 96, 0.4);
-      box-shadow:
-        0 32px 80px rgba(0, 0, 0, 0.55),
-        0 0 0 1px rgba(15, 23, 42, 0.15);
-      max-width: 1040px;
-      width: 100%;
-      padding: 1.8rem 2rem 2.6rem;
+    /* LAYOUT */
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+    }
+
+    .shell {
+      background: var(--surface);
+      border-radius: 26px;
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 2rem 2.5rem;
     }
 
     @media (max-width: 768px) {
-      .page-shell {
-        padding: 1rem 0.7rem;
+      .page {
+        padding: 1.1rem 0.9rem 2.3rem;
       }
-      .frame {
-        padding: 1.4rem 1.3rem 2.1rem;
+      .shell {
+        padding: 1.5rem 1.25rem 2.1rem;
         border-radius: 20px;
       }
     }
@@ -76,37 +68,31 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.9rem;
+      margin-bottom: 2rem;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.75rem;
     }
 
-    .logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      border: 1px solid rgba(89, 73, 51, 0.6);
-      background: linear-gradient(
-        135deg,
-        var(--accent-green) 0%,
-        #f0e4cf 50%,
-        var(--accent-red) 100%
-      );
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fdfaf5;
       font-size: 0.8rem;
       font-weight: 600;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+      color: var(--accent);
+      background: #f9f9fb;
     }
 
     .brand-text-title {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -126,7 +112,7 @@
 
     nav a {
       position: relative;
-      padding-bottom: 0.1rem;
+      padding-bottom: 0.08rem;
       color: var(--text-muted);
     }
 
@@ -134,15 +120,15 @@
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.15rem;
+      bottom: -0.2rem;
       width: 0;
       height: 1px;
-      background: var(--accent-green);
-      transition: width 0.2s ease;
+      background: var(--accent);
+      transition: width 0.18s ease;
     }
 
     nav a:hover {
-      color: var(--accent-green);
+      color: var(--accent);
     }
 
     nav a:hover::after {
@@ -150,22 +136,21 @@
     }
 
     .nav-cta {
-      padding: 0.35rem 0.9rem;
+      padding: 0.3rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid var(--accent-green);
+      border: 1px solid var(--border);
       font-size: 0.8rem;
-      color: var(--accent-green);
-      background: transparent;
+      color: var(--text-main);
+      background: #f5f5f7;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 640px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
       nav {
         flex-wrap: wrap;
-        gap: 0.8rem;
       }
     }
 
@@ -173,39 +158,37 @@
 
     #hero {
       display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
-      gap: 1.8rem;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 2rem;
       align-items: center;
-      margin-bottom: 2.4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e5e5ea;
+      margin-bottom: 2rem;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 800px) {
       #hero {
         grid-template-columns: 1fr;
       }
     }
 
-    .hero-left {
-      padding-right: 0.4rem;
-    }
-
     .hero-kicker {
       font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--text-muted);
       margin-bottom: 0.6rem;
     }
 
     .hero-title {
-      font-size: clamp(2rem, 3.2vw + 1rem, 2.7rem);
-      line-height: 1.08;
+      font-size: clamp(2.1rem, 3.3vw + 1rem, 2.8rem);
+      line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: 0.7rem;
     }
 
     .hero-title span {
-      color: var(--accent-green);
+      color: var(--accent);
     }
 
     .hero-sub {
@@ -224,38 +207,36 @@
     }
 
     .btn-primary {
-      padding: 0.7rem 1.3rem;
+      padding: 0.7rem 1.4rem;
       border-radius: 999px;
       border: none;
-      background: var(--accent-green);
-      color: #fdfaf5;
+      background: var(--accent);
+      color: #f9fafb;
       font-weight: 500;
       font-size: 0.9rem;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 12px 30px rgba(0, 113, 227, 0.4);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 16px 40px rgba(0, 113, 227, 0.5);
     }
 
-    .btn-ghost {
-      padding: 0.65rem 1.1rem;
+    .btn-outline {
+      padding: 0.65rem 1.2rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(253, 250, 245, 0.8);
+      background: #ffffff;
       font-size: 0.88rem;
       color: var(--text-main);
       cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition: background 0.15s ease;
     }
 
-    .btn-ghost:hover {
-      background: var(--surface-soft);
-      border-color: var(--accent-green);
+    .btn-outline:hover {
+      background: #f5f5f7;
     }
 
     .hero-note {
@@ -263,105 +244,31 @@
       color: var(--text-muted);
     }
 
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 1rem;
-    }
-
-    .hero-tag {
-      font-size: 0.78rem;
-      padding: 0.28rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid #d5c8b2;
-      background: #fdfaf5;
-      color: var(--text-muted);
-    }
-
     .hero-right {
-      display: grid;
-      grid-template-rows: auto auto;
-      gap: 0.8rem;
-    }
-
-    .hero-card-main {
-      background: var(--surface-soft);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.05rem 1.1rem;
+      border: 1px solid #e5e5ea;
+      background: #fbfbfd;
+      padding: 1.1rem 1.2rem;
       font-size: 0.86rem;
       color: var(--text-muted);
-      position: relative;
-      overflow: hidden;
     }
 
-    .hero-card-main::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        120deg,
-        #ffffff 0%,
-        #f5eee2 35%,
-        #f9f2e6 70%
-      );
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .hero-card-main-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card-main-title {
+    .hero-right-title {
       font-size: 0.92rem;
       font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--accent-green);
+      margin-bottom: 0.45rem;
+      color: var(--text-main);
     }
 
-    .hero-card-main p {
-      margin: 0.1rem 0;
-    }
-
-    .hero-card-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem;
-    }
-
-    .hero-mini-card {
-      background: var(--surface);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 0.65rem 0.7rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .hero-right-row {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
     }
 
-    .hero-mini-card span.label {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #a2937e;
-    }
-
-    .hero-mini-card span.value {
-      font-size: 0.86rem;
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .hero-mini-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent-green);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    .hero-right-row p {
+      margin: 0;
     }
 
     /* SECTION SHARED */
@@ -401,8 +308,8 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 0.8rem;
+      gap: 1rem;
+      margin-top: 0.9rem;
     }
 
     @media (max-width: 960px) {
@@ -418,49 +325,46 @@
     }
 
     .service-card {
-      background: var(--surface);
       border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 0.9rem 0.95rem;
+      border: 1px solid #e5e5ea;
+      background: #ffffff;
+      padding: 0.9rem 1rem;
       font-size: 0.86rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       gap: 0.35rem;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
 
     .service-title {
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: var(--accent-green);
+      margin-bottom: 0.15rem;
     }
 
     .service-desc {
       font-size: 0.84rem;
       color: var(--text-muted);
-      margin-bottom: 0.3rem;
     }
 
     .service-price {
       font-size: 0.8rem;
-      color: var(--accent-red);
-      margin-top: auto;
+      color: var(--accent);
+      margin-top: 0.2rem;
     }
 
     .service-card:hover {
       transform: translateY(-2px);
-      border-color: var(--accent-green);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+      border-color: #c7c7cc;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
 
     /* CONTACT */
 
     #contact .contact-card {
-      background: var(--surface);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
+      border: 1px solid #e5e5ea;
+      background: #fbfbfd;
       padding: 1rem 1.15rem;
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -477,10 +381,10 @@
     .pill {
       padding: 0.34rem 0.85rem;
       border-radius: 999px;
-      background: #e5f0ea;
-      color: var(--accent-green);
+      background: #e5f0ff;
+      color: var(--accent);
       font-size: 0.78rem;
-      border: 1px solid #c6ded0;
+      border: 1px solid #d0e3ff;
     }
 
     .contact-note {
@@ -489,7 +393,7 @@
     }
 
     footer {
-      margin-top: 1.6rem;
+      margin-top: 1.5rem;
       font-size: 0.78rem;
       color: var(--text-muted);
       text-align: center;
@@ -499,7 +403,7 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(16px);
       transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
@@ -514,14 +418,14 @@
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <div class="frame">
+  <div class="page">
+    <div class="shell">
       <header class="reveal is-visible">
         <div class="brand">
-          <div class="logo-mark">DF</div>
+          <div class="logo-circle">DF</div>
           <div>
             <div class="brand-text-title">DIGITALFOUNDRY STUDIO</div>
-            <div class="brand-text-sub">Modern design & content support</div>
+            <div class="brand-text-sub">Design & content support</div>
           </div>
         </div>
         <nav>
@@ -535,53 +439,34 @@
       <main>
         <!-- HERO -->
         <section id="hero" class="reveal reveal-delay-1">
-          <div class="hero-left">
+          <div>
             <div class="hero-kicker">Independent studio</div>
             <h1 class="hero-title">
-              Quietly polished help<br />
+              Quiet, minimal help<br />
               for <span>logos, docs, and visuals.</span>
             </h1>
             <p class="hero-sub">
-              DigitalFoundry Studio helps creators and small teams sharpen existing logos,
-              simplify long documents, and polish visuals—using AI as a tool, not the final word.
+              DigitalFoundry Studio helps creators and small businesses clean up logos,
+              simplify documents, and polish visuals using AI as a tool and a human eye
+              on the final result.
             </p>
             <div class="hero-cta-row">
               <a href="#contact"><button class="btn-primary">Send a project</button></a>
-              <a href="#services"><button class="btn-ghost">View services</button></a>
+              <a href="#services"><button class="btn-outline">View services</button></a>
             </div>
             <div class="hero-note">
               Small, focused projects. Clear expectations. Most work turned around within 24–48 hours.
             </div>
-            <div class="hero-tags">
-              <span class="hero-tag">Logo cleanup</span>
-              <span class="hero-tag">PDF summaries</span>
-              <span class="hero-tag">Headshots</span>
-              <span class="hero-tag">Short-form captioning</span>
-              <span class="hero-tag">Business cards</span>
-            </div>
           </div>
 
-          <div class="hero-right">
-            <div class="hero-card-main">
-              <div class="hero-card-main-inner">
-                <div class="hero-card-main-title">Typical engagement</div>
-                <p><strong>Client:</strong> Solo creator or small brand with pieces already in place.</p>
-                <p><strong>Need:</strong> A logo that feels finished, a PDF that needs to be skimmed, a photo that could pass as a headshot.</p>
-              </div>
+          <aside class="hero-right">
+            <div class="hero-right-title">A typical project</div>
+            <div class="hero-right-row">
+              <p><strong>Client</strong>: solo creator or small brand with assets already in place.</p>
+              <p><strong>Inputs</strong>: an “almost there” logo, a long PDF, a decent selfie, or a rough clip.</p>
+              <p><strong>Output</strong>: cleaner, more usable versions—ready for your audience, not just your files.</p>
             </div>
-            <div class="hero-card-row">
-              <div class="hero-mini-card">
-                <span class="label">Logos</span>
-                <span class="value">Cleanup & subtle refresh</span>
-                <span>Sharpen edges, fix exports, keep the core intact.</span>
-              </div>
-              <div class="hero-mini-card">
-                <span class="label">Documents</span>
-                <span class="value">From dense to digestible</span>
-                <span>Pull out key points and structure what matters.</span>
-              </div>
-            </div>
-          </div>
+          </aside>
         </section>
 
         <!-- ABOUT -->
@@ -589,22 +474,22 @@
           <div class="section-label">About</div>
           <h2 class="section-title">A narrow, intentional offering.</h2>
           <p class="section-sub">
-            DigitalFoundry is a one-person studio built around a simple idea: fewer services,
-            done with more attention, for people who already have something to work with.
+            DigitalFoundry is a one-person studio focused on a small set of things done well:
+            tightening what you already have instead of rebuilding everything from scratch.
           </p>
           <p>
-            Rather than designing everything from zero, I focus on tightening what already exists:
-            logos that are “almost there,” PDFs that are too long to revisit, photos that are good
-            but not quite “profile ready,” and short clips that would land better with clean captions.
+            Instead of offering every design service under the sun, I work on a few specific pieces:
+            logos that are “almost there,” PDFs that are too long to revisit, photos that are nearly
+            “profile ready,” and short clips that would land better with clean, readable captions.
           </p>
         </section>
 
         <!-- SERVICES -->
         <section id="services" class="reveal reveal-delay-2">
           <div class="section-label">Services</div>
-          <h2 class="section-title">Where I can help most.</h2>
+          <h2 class="section-title">Where I can help.</h2>
           <p class="section-sub">
-            Defined offerings that are easy to say yes to. You send what you have, I send back
+            Defined offerings that are easy to say yes to. You send what you have; I send back
             something more considered and ready to use.
           </p>
 
@@ -649,8 +534,8 @@
             <article class="service-card">
               <div class="service-title">Business card layouts</div>
               <div class="service-desc">
-                Quiet, legible layouts that pair cleanly with your logo and print well in both
-                color and black & white.
+                Clean, legible layouts that pair with your logo and print well in both color
+                and black & white.
               </div>
               <div class="service-price">$20 per layout · $30–$35 with logo</div>
             </article>
@@ -662,8 +547,8 @@
           <div class="section-label">Contact</div>
           <h2 class="section-title">Lightweight to get started.</h2>
           <p class="section-sub">
-            A short note with what you have and what you’d like it to turn into is enough.
-            I’ll reply with a simple confirmation, price, and timeline.
+            A short email with what you have and what you’d like it to become is enough.
+            I’ll reply with a simple confirmation, a price, and a timeline.
           </p>
 
           <div class="contact-card">
@@ -687,13 +572,13 @@
       </main>
 
       <footer class="reveal reveal-delay-3">
-        © 2025 DigitalFoundry Studio · Modern design & content support
+        © 2025 DigitalFoundry Studio · Design & content support
       </footer>
     </div>
   </div>
 
   <script>
-    // Simple scroll reveal for "wow" factor
+    // Simple scroll reveal for subtle "wow" factor
     const revealEls = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver(
