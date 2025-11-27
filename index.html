@@ -9,6 +9,7 @@
     :root {
       --bg: #f5f5f7;
       --surface: #ffffff;
+      --surface-alt: #fbfbfd;
       --text-main: #1d1d1f;
       --text-muted: #6e6e73;
       --accent: #0071e3;   /* Apple-ish blue */
@@ -157,19 +158,9 @@
     /* HERO */
 
     #hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
-      gap: 2rem;
-      align-items: center;
-      padding-bottom: 2rem;
+      padding-bottom: 1.8rem;
       border-bottom: 1px solid #e5e5ea;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 800px) {
-      #hero {
-        grid-template-columns: 1fr;
-      }
+      margin-bottom: 1.8rem;
     }
 
     .hero-kicker {
@@ -244,31 +235,90 @@
       color: var(--text-muted);
     }
 
-    .hero-right {
-      border-radius: var(--radius-lg);
+    /* SHOWCASE STRIP */
+
+    .showcase {
+      background: var(--surface-alt);
+      border-radius: 14px;
       border: 1px solid #e5e5ea;
-      background: #fbfbfd;
-      padding: 1.1rem 1.2rem;
-      font-size: 0.86rem;
+      padding: 0.9rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .showcase-label {
+      font-size: 0.8rem;
       color: var(--text-muted);
+      margin-bottom: 0.4rem;
     }
 
-    .hero-right-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin-bottom: 0.45rem;
-      color: var(--text-main);
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
     }
 
-    .hero-right-row {
+    @media (max-width: 880px) {
+      .showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .showcase-card {
+      border-radius: 12px;
+      border: 1px solid #e5e5ea;
+      background: #ffffff;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.8rem;
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
-      margin-top: 0.5rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
 
-    .hero-right-row p {
-      margin: 0;
+    .showcase-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .showcase-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .showcase-split {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .showcase-col {
+      flex: 1;
+      border-radius: 8px;
+      border: 1px dashed #e5e5ea;
+      padding: 0.3rem 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .showcase-col span {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+      color: var(--text-main);
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-1px);
+      border-color: #c7c7cc;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
     }
 
     /* SECTION SHARED */
@@ -347,6 +397,19 @@
       color: var(--text-muted);
     }
 
+    .service-example {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      border-top: 1px solid #f0f0f5;
+      padding-top: 0.35rem;
+    }
+
+    .service-example span {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
     .service-price {
       font-size: 0.8rem;
       color: var(--accent);
@@ -364,7 +427,7 @@
     #contact .contact-card {
       border-radius: var(--radius-lg);
       border: 1px solid #e5e5ea;
-      background: #fbfbfd;
+      background: var(--surface-alt);
       padding: 1rem 1.15rem;
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -458,15 +521,57 @@
               Small, focused projects. Clear expectations. Most work turned around within 24–48 hours.
             </div>
           </div>
+        </section>
 
-          <aside class="hero-right">
-            <div class="hero-right-title">A typical project</div>
-            <div class="hero-right-row">
-              <p><strong>Client</strong>: solo creator or small brand with assets already in place.</p>
-              <p><strong>Inputs</strong>: an “almost there” logo, a long PDF, a decent selfie, or a rough clip.</p>
-              <p><strong>Output</strong>: cleaner, more usable versions—ready for your audience, not just your files.</p>
+        <!-- SHOWCASE STRIP -->
+        <section class="showcase reveal reveal-delay-1">
+          <div class="showcase-label">Sample outcomes (before → after)</div>
+          <div class="showcase-grid">
+            <div class="showcase-card">
+              <div class="showcase-tag">Logos</div>
+              <div class="showcase-title">Blurry PNG → crisp brand mark</div>
+              <div class="showcase-split">
+                <div class="showcase-col">
+                  <span>Before</span>
+                  Small, pixelated logo pulled from a website screenshot.
+                </div>
+                <div class="showcase-col">
+                  <span>After</span>
+                  Clean vector-style logo with transparent background, ready for cards and social.
+                </div>
+              </div>
             </div>
-          </aside>
+
+            <div class="showcase-card">
+              <div class="showcase-tag">Documents</div>
+              <div class="showcase-title">25-page PDF → 2-page brief</div>
+              <div class="showcase-split">
+                <div class="showcase-col">
+                  <span>Before</span>
+                  Long, dense client proposal with no clear summary or next steps.
+                </div>
+                <div class="showcase-col">
+                  <span>After</span>
+                  Key bullets, questions, and action items grouped on two pages.
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-card">
+              <div class="showcase-tag">Headshots</div>
+              <div class="showcase-title">Casual selfie → profile-ready</div>
+              <div class="showcase-split">
+                <div class="showcase-col">
+                  <span>Before</span>
+                  Slightly dark, busy background, good expression but not very “LinkedIn”.
+                </div>
+                <div class="showcase-col">
+                  <span>After</span>
+                  Cleaner background, balanced lighting, subtle polish while still looking like you.
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- ABOUT -->
@@ -501,6 +606,10 @@
                 files (including transparent PNGs). Light modern tweaks if you want it updated,
                 not replaced.
               </div>
+              <div class="service-example">
+                <span>Example:</span> You send a screenshot logo from your old site → you receive
+                a cleaned-up mark in multiple sizes, ready for business cards and social headers.
+              </div>
               <div class="service-price">From $12 · $20–$25 with new concepts</div>
             </article>
 
@@ -509,6 +618,10 @@
               <div class="service-desc">
                 Turn long PDFs, reports, or notes into structured bullet points and key ideas.
                 Useful for study, planning, or sharing with a team.
+              </div>
+              <div class="service-example">
+                <span>Example:</span> You send a 30-page industry report → you receive a 1–2 page
+                summary with bullet points, definitions, and action items.
               </div>
               <div class="service-price">$10 per 10 pages</div>
             </article>
@@ -519,6 +632,10 @@
                 Start from a decent photo and end up with professional-feeling headshots for
                 LinkedIn, CVs, websites, and profiles—without booking a studio.
               </div>
+              <div class="service-example">
+                <span>Example:</span> You send 2–3 casual photos → you receive 2–3 polished headshots
+                with refined lighting and background.
+              </div>
               <div class="service-price">$10–$15 · 2–3 final options</div>
             </article>
 
@@ -528,6 +645,10 @@
                 Add clean, readable captions and subtle pacing to TikToks, Reels, or Shorts so
                 they’re watchable on mute and easier to follow.
               </div>
+              <div class="service-example">
+                <span>Example:</span> You send a 30–45 sec vertical clip → you receive a captioned
+                version with simple title frame and clear subtitles.
+              </div>
               <div class="service-price">$10 per clip · 3 for $25</div>
             </article>
 
@@ -536,6 +657,10 @@
               <div class="service-desc">
                 Clean, legible layouts that pair with your logo and print well in both color
                 and black & white.
+              </div>
+              <div class="service-example">
+                <span>Example:</span> You send your logo and basic details → you receive a print-ready
+                front/back card layout as a PDF + image.
               </div>
               <div class="service-price">$20 per layout · $30–$35 with logo</div>
             </article>
@@ -578,7 +703,7 @@
   </div>
 
   <script>
-    // Simple scroll reveal for subtle "wow" factor
+    // Simple scroll reveal for subtle "wow"
     const revealEls = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver(
