@@ -9,14 +9,15 @@
     :root {
       --bg: #f5f5f7;
       --surface: #ffffff;
-      --surface-alt: #fbfbfd;
+      --surface-soft: #fbfbfd;
       --text-main: #1d1d1f;
       --text-muted: #6e6e73;
       --accent: #0071e3;   /* Apple-ish blue */
       --border: #d2d2d7;
+      --radius-xl: 26px;
       --radius-lg: 18px;
       --radius-md: 12px;
-      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.08);
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
     }
 
     * { box-sizing: border-box; }
@@ -46,10 +47,10 @@
     }
 
     .shell {
-      background: var(--surface);
-      border-radius: 26px;
+      background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 65%);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow-soft);
-      padding: 1.8rem 2rem 2.5rem;
+      padding: 1.8rem 2rem 2.7rem;
     }
 
     @media (max-width: 768px) {
@@ -158,9 +159,19 @@
     /* HERO */
 
     #hero {
-      padding-bottom: 1.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 2rem;
+      align-items: center;
+      padding-bottom: 2.1rem;
       border-bottom: 1px solid #e5e5ea;
-      margin-bottom: 1.8rem;
+      margin-bottom: 2.1rem;
+    }
+
+    @media (max-width: 800px) {
+      #hero {
+        grid-template-columns: 1fr;
+      }
     }
 
     .hero-kicker {
@@ -235,90 +246,72 @@
       color: var(--text-muted);
     }
 
-    /* SHOWCASE STRIP */
+    /* HERO PREVIEW CARD */
 
-    .showcase {
-      background: var(--surface-alt);
-      border-radius: 14px;
+    .hero-preview {
+      border-radius: var(--radius-lg);
       border: 1px solid #e5e5ea;
-      padding: 0.9rem 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .showcase-label {
+      background: var(--surface-soft);
+      padding: 1rem 1rem 1.1rem;
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 0.4rem;
     }
 
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.7rem;
-    }
-
-    @media (max-width: 880px) {
-      .showcase-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .showcase-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .showcase-card {
-      border-radius: 12px;
-      border: 1px solid #e5e5ea;
-      background: #ffffff;
-      padding: 0.6rem 0.7rem;
-      font-size: 0.8rem;
+    .preview-header {
       display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
     }
 
-    .showcase-tag {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .showcase-title {
-      font-size: 0.86rem;
+    .preview-title {
+      font-size: 0.84rem;
       font-weight: 600;
-    }
-
-    .showcase-split {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.2rem;
-    }
-
-    .showcase-col {
-      flex: 1;
-      border-radius: 8px;
-      border: 1px dashed #e5e5ea;
-      padding: 0.3rem 0.4rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .showcase-col span {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.15rem;
       color: var(--text-main);
     }
 
-    .showcase-card:hover {
-      transform: translateY(-1px);
-      border-color: #c7c7cc;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    .preview-dots {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .preview-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #d2d2d7;
+    }
+
+    .preview-window {
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 0.85rem;
+      border: 1px solid #e5e5ea;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .preview-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .preview-block {
+      border-radius: 10px;
+      background: #f2f2f7;
+      height: 40px;
+    }
+
+    .preview-block-main {
+      height: 54px;
+    }
+
+    .preview-caption {
+      font-size: 0.78rem;
+      margin-top: 0.6rem;
+      color: var(--text-muted);
     }
 
     /* SECTION SHARED */
@@ -389,7 +382,7 @@
     .service-title {
       font-size: 0.95rem;
       font-weight: 600;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
     }
 
     .service-desc {
@@ -397,23 +390,23 @@
       color: var(--text-muted);
     }
 
-    .service-example {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-      border-top: 1px solid #f0f0f5;
-      padding-top: 0.35rem;
+    .service-example-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a1a1a6;
+      margin-top: 0.25rem;
     }
 
-    .service-example span {
-      font-weight: 500;
+    .service-example {
+      font-size: 0.82rem;
       color: var(--text-main);
     }
 
     .service-price {
       font-size: 0.8rem;
       color: var(--accent);
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
     }
 
     .service-card:hover {
@@ -427,7 +420,7 @@
     #contact .contact-card {
       border-radius: var(--radius-lg);
       border: 1px solid #e5e5ea;
-      background: var(--surface-alt);
+      background: var(--surface-soft);
       padding: 1rem 1.15rem;
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -521,57 +514,33 @@
               Small, focused projects. Clear expectations. Most work turned around within 24–48 hours.
             </div>
           </div>
-        </section>
 
-        <!-- SHOWCASE STRIP -->
-        <section class="showcase reveal reveal-delay-1">
-          <div class="showcase-label">Sample outcomes (before → after)</div>
-          <div class="showcase-grid">
-            <div class="showcase-card">
-              <div class="showcase-tag">Logos</div>
-              <div class="showcase-title">Blurry PNG → crisp brand mark</div>
-              <div class="showcase-split">
-                <div class="showcase-col">
-                  <span>Before</span>
-                  Small, pixelated logo pulled from a website screenshot.
-                </div>
-                <div class="showcase-col">
-                  <span>After</span>
-                  Clean vector-style logo with transparent background, ready for cards and social.
-                </div>
+          <!-- Visual mock preview instead of "typical project" copy -->
+          <aside class="hero-preview">
+            <div class="preview-header">
+              <div class="preview-title">Sample workspace</div>
+              <div class="preview-dots">
+                <div class="preview-dot"></div>
+                <div class="preview-dot"></div>
+                <div class="preview-dot"></div>
               </div>
             </div>
-
-            <div class="showcase-card">
-              <div class="showcase-tag">Documents</div>
-              <div class="showcase-title">25-page PDF → 2-page brief</div>
-              <div class="showcase-split">
-                <div class="showcase-col">
-                  <span>Before</span>
-                  Long, dense client proposal with no clear summary or next steps.
-                </div>
-                <div class="showcase-col">
-                  <span>After</span>
-                  Key bullets, questions, and action items grouped on two pages.
-                </div>
+            <div class="preview-window">
+              <div class="preview-block preview-block-main"></div>
+              <div class="preview-row">
+                <div class="preview-block"></div>
+                <div class="preview-block"></div>
+              </div>
+              <div class="preview-row">
+                <div class="preview-block"></div>
+                <div class="preview-block"></div>
               </div>
             </div>
-
-            <div class="showcase-card">
-              <div class="showcase-tag">Headshots</div>
-              <div class="showcase-title">Casual selfie → profile-ready</div>
-              <div class="showcase-split">
-                <div class="showcase-col">
-                  <span>Before</span>
-                  Slightly dark, busy background, good expression but not very “LinkedIn”.
-                </div>
-                <div class="showcase-col">
-                  <span>After</span>
-                  Cleaner background, balanced lighting, subtle polish while still looking like you.
-                </div>
-              </div>
+            <div class="preview-caption">
+              A simplified view of how your assets come in—logos, PDFs, images, clips—and
+              leave as cleaner, ready-to-use pieces.
             </div>
-          </div>
+          </aside>
         </section>
 
         <!-- ABOUT -->
@@ -606,9 +575,10 @@
                 files (including transparent PNGs). Light modern tweaks if you want it updated,
                 not replaced.
               </div>
+              <div class="service-example-label">Example</div>
               <div class="service-example">
-                <span>Example:</span> You send a screenshot logo from your old site → you receive
-                a cleaned-up mark in multiple sizes, ready for business cards and social headers.
+                A blurry JPG from a business card turned into a clean, high-res logo set
+                for web, print, and social avatars.
               </div>
               <div class="service-price">From $12 · $20–$25 with new concepts</div>
             </article>
@@ -619,9 +589,10 @@
                 Turn long PDFs, reports, or notes into structured bullet points and key ideas.
                 Useful for study, planning, or sharing with a team.
               </div>
+              <div class="service-example-label">Example</div>
               <div class="service-example">
-                <span>Example:</span> You send a 30-page industry report → you receive a 1–2 page
-                summary with bullet points, definitions, and action items.
+                A 30-page policy document distilled into a 2-page summary with sections for
+                “What matters now” and “Action items.”
               </div>
               <div class="service-price">$10 per 10 pages</div>
             </article>
@@ -632,9 +603,10 @@
                 Start from a decent photo and end up with professional-feeling headshots for
                 LinkedIn, CVs, websites, and profiles—without booking a studio.
               </div>
+              <div class="service-example-label">Example</div>
               <div class="service-example">
-                <span>Example:</span> You send 2–3 casual photos → you receive 2–3 polished headshots
-                with refined lighting and background.
+                A casual outdoor selfie turned into clean, neutral-background portraits in
+                two or three slightly different looks.
               </div>
               <div class="service-price">$10–$15 · 2–3 final options</div>
             </article>
@@ -645,9 +617,10 @@
                 Add clean, readable captions and subtle pacing to TikToks, Reels, or Shorts so
                 they’re watchable on mute and easier to follow.
               </div>
+              <div class="service-example-label">Example</div>
               <div class="service-example">
-                <span>Example:</span> You send a 30–45 sec vertical clip → you receive a captioned
-                version with simple title frame and clear subtitles.
+                A 30–45 second vertical video given a title card, captions, and minimal
+                styling that still feels on-brand.
               </div>
               <div class="service-price">$10 per clip · 3 for $25</div>
             </article>
@@ -658,9 +631,10 @@
                 Clean, legible layouts that pair with your logo and print well in both color
                 and black & white.
               </div>
+              <div class="service-example-label">Example</div>
               <div class="service-example">
-                <span>Example:</span> You send your logo and basic details → you receive a print-ready
-                front/back card layout as a PDF + image.
+                A simple front–back design with your logo, key contact info, and hierarchy
+                that stays readable at small sizes.
               </div>
               <div class="service-price">$20 per layout · $30–$35 with logo</div>
             </article>
@@ -703,7 +677,7 @@
   </div>
 
   <script>
-    // Simple scroll reveal for subtle "wow"
+    // Simple scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver(
