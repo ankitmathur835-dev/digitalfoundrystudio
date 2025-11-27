@@ -164,3 +164,460 @@
         grid-template-columns: 1fr;
         gap: 1.4rem;
       }
+    }
+
+    .hero-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.1vw + 1rem, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-title span {
+      color: #ea580c;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .btn-primary {
+      padding: 0.65rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fefce8;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 14px 35px rgba(249, 115, 22, 0.5);
+    }
+
+    .btn-ghost {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: transparent;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #ffffffb3;
+      color: var(--text-muted);
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background:
+        linear-gradient(145deg, #fefce8, #fff7ed);
+      padding: 1.1rem 1.2rem 1.2rem;
+      font-size: 0.86rem;
+      color: #78350f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, #fed7aa66, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-panel-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .hero-panel-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-panel-col {
+      flex: 1;
+    }
+
+    .hero-panel-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.9;
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-panel-main {
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    .hero-panel-meta {
+      font-size: 0.78rem;
+      opacity: 0.9;
+      margin-top: 0.3rem;
+    }
+
+    /* SECTION SHARED */
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ABOUT */
+
+    #about p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.7rem;
+    }
+
+    @media (max-width: 720px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--card-border);
+      padding: 0.9rem 1rem;
+      font-size: 0.88rem;
+    }
+
+    .service-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .service-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .service-price {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    /* CONTACT */
+
+    #contact .contact-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--card-border);
+      padding: 1.1rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+    }
+
+    .contact-methods {
+      margin: 0.55rem 0 0.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #9a3412;
+      font-size: 0.78rem;
+      border: 1px solid #fed7aa;
+    }
+
+    .contact-note {
+      font-size: 0.78rem;
+      margin-top: 0.35rem;
+    }
+
+    footer {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="card">
+      <header>
+        <div class="brand">
+          <div class="logo-mark">DF</div>
+          <div>
+            <div class="brand-text-title">DIGITALFOUNDRY STUDIO</div>
+            <div class="brand-text-sub">Minimal, modern creative support</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="nav-cta">Work with me</a>
+        </nav>
+      </header>
+
+      <main>
+        <!-- HERO -->
+        <section id="hero">
+          <div>
+            <div class="hero-kicker">Studio overview</div>
+            <h1 class="hero-title">
+              Quietly polished<br />
+              <span>design & content support.</span>
+            </h1>
+            <p class="hero-sub">
+              DigitalFoundry Studio helps creators and small teams sharpen logos, simplify
+              documents, and upgrade visuals using AI-assisted workflows with a human eye
+              on the final result.
+            </p>
+            <div class="hero-cta-row">
+              <a href="#contact"><button class="btn-primary">Send a project</button></a>
+              <a href="#services"><button class="btn-ghost">Browse services</button></a>
+            </div>
+            <div class="hero-note">
+              Small, focused projects. Clear pricing. Most work turned around within 24–48 hours.
+            </div>
+            <div class="hero-chip-row">
+              <span class="chip">Logo cleanup & refresh</span>
+              <span class="chip">PDF & doc summaries</span>
+              <span class="chip">AI-enhanced headshots</span>
+              <span class="chip">Short-form captioning</span>
+              <span class="chip">Business card layouts</span>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-panel-title">Typical engagement</div>
+            <div class="hero-panel-row">
+              <div class="hero-panel-col">
+                <div class="hero-panel-label">Client</div>
+                <div class="hero-panel-main">Solo creator / small brand</div>
+              </div>
+              <div class="hero-panel-col">
+                <div class="hero-panel-label">Scope</div>
+                <div class="hero-panel-main">Logo tidy, summary, visuals</div>
+              </div>
+            </div>
+            <div class="hero-panel-meta">
+              You bring the raw pieces—an existing logo, a stack of notes, a good selfie,
+              a rough clip. I turn them into cleaner, more usable assets without heavy
+              “agency” process.
+            </div>
+          </aside>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+          <div class="section-label">About</div>
+          <h2 class="section-title">A tiny studio with a narrow focus.</h2>
+          <p class="section-sub">
+            DigitalFoundry is intentionally small: one person, a tight set of services,
+            and a preference for calm, clear communication.
+          </p>
+          <p>
+            I use AI as a speed boost—not a replacement. Drafts are generated quickly,
+            then edited and refined so the final output feels clean, consistent, and ready
+            for real-world use. No complex onboarding, no sprawling proposals; just
+            focused help on specific pieces of your brand and workflow.
+          </p>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+          <div class="section-label">Services</div>
+          <h2 class="section-title">Where I can help most.</h2>
+          <p class="section-sub">
+            Simple, clearly defined offerings built around tightening what you already
+            have—rather than starting everything from scratch.
+          </p>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-title">Logo cleanup & refresh</div>
+              <p class="service-desc">
+                Take a logo that’s almost there and give it crisp edges, better contrast,
+                and clean files (including transparent PNGs). Optional subtle modern
+                tweaks if you’d like it refreshed, not replaced.
+              </p>
+              <div class="service-meta">
+                <span>Good for existing brands that just need polish.</span>
+                <span class="service-price">From $12 · $20–$25 with new concepts</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-title">Document & PDF summaries</div>
+              <p class="service-desc">
+                Turn long PDFs, reports, or messy notes into structured bullet points and
+                clear takeaways. Ideal for prep, study, or sharing with a team.
+              </p>
+              <div class="service-meta">
+                <span>Long form in, short form out.</span>
+                <span class="service-price">$10 per 10 pages</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-title">AI-enhanced headshots</div>
+              <p class="service-desc">
+                Start from a decent photo and end up with professional-feeling headshots
+                suitable for LinkedIn, portfolios, and pitch decks—without a studio shoot.
+              </p>
+              <div class="service-meta">
+                <span>LinkedIn, CVs, sites, socials.</span>
+                <span class="service-price">$10–$15 · 2–3 final options</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-title">Short-form captioning</div>
+              <p class="service-desc">
+                Add clean captions, basic pacing, and simple title frames to TikToks,
+                Reels, or Shorts so your videos are watchable on mute and easier to follow.
+              </p>
+              <div class="service-meta">
+                <span>Best for clips under 60 seconds.</span>
+                <span class="service-price">$10 per clip · 3 for $25</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-title">Business card layouts</div>
+              <p class="service-desc">
+                Quiet, legible business card designs that pair well with your logo and
+                work nicely in both color and black & white at print.
+              </p>
+              <div class="service-meta">
+                <span>Print-ready files, no templates needed.</span>
+                <span class="service-price">$20 per layout · $30–$35 with logo</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Lightweight to get started.</h2>
+          <p class="section-sub">
+            A short email with what you have and what you’d like it to become is enough
+            to begin. I’ll reply with a simple confirmation, a price, and a timeline.
+          </p>
+
+          <div class="contact-card">
+            <p>
+              Email:
+              <a href="mailto:digitalfoundrystudio@gmail.com">
+                digitalfoundrystudio@gmail.com
+              </a>
+            </p>
+            <div class="contact-methods">
+              <div class="pill">Venmo</div>
+              <div class="pill">PayPal</div>
+              <div class="pill">Cash App</div>
+            </div>
+            <p class="contact-note">
+              The same studio name and email can be used on Reddit, Fiverr, and other
+              platforms so people always land in the same place.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        © 2025 DigitalFoundry Studio · Minimal, modern creative support
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
