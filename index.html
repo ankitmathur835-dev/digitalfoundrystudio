@@ -2,35 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>DigitalFoundry Studio – Design & Content Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="DigitalFoundry Studio helps creators and small businesses clean up logos, simplify documents, and polish visuals with a calm, minimal approach." />
+  <title>digitalFoundryStudio – AI-Powered Creative Studio</title>
+  <meta name="description" content="AI-powered visuals, short-form content, and digital assets for creators and brands." />
+
+  <!-- Basic Apple-style system font stack -->
   <style>
     :root {
-      --bg: #f5f5f7;
-      --surface: #ffffff;
-      --surface-soft: #fbfbfd;
-      --text-main: #1d1d1f;
-      --text-muted: #6e6e73;
-      --accent: #0071e3;   /* Apple-ish blue */
-      --border: #d2d2d7;
-      --radius-xl: 26px;
+      --bg: #050606;
+      --bg-elevated: rgba(14, 18, 16, 0.9);
+      --card: rgba(18, 24, 21, 0.9);
+      --card-soft: rgba(20, 26, 22, 0.95);
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --text-main: #f7f7f5;
+      --text-muted: #a7a9a0;
+      --accent-green: #0d4e39; /* Gucci green */
+      --accent-red: #b72b32;   /* Gucci red */
+      --accent-gold: #d5b36c;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.7);
+      --radius-xl: 24px;
       --radius-lg: 18px;
-      --radius-md: 12px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
+      --radius-pill: 999px;
+      --transition-fast: 200ms ease-out;
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, #102a26 0, #050606 40%, #050606 100%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: rgba(213, 179, 108, 0.25);
     }
 
     a {
@@ -38,866 +49,877 @@
       text-decoration: none;
     }
 
-    /* LAYOUT */
-
     .page {
-      max-width: 980px;
+      min-height: 100vh;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 1.75rem 1.25rem 3rem;
+      padding: 32px 20px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
     }
 
-    .shell {
-      background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 65%);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      padding: 1.8rem 2rem 2.7rem;
-    }
+    /* TOP NAV */
 
-    @media (max-width: 768px) {
-      .page {
-        padding: 1.1rem 0.9rem 2.3rem;
-      }
-      .shell {
-        padding: 1.5rem 1.25rem 2.1rem;
-        border-radius: 20px;
-      }
-    }
-
-    /* HEADER */
-
-    header {
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      gap: 16px;
+      margin-bottom: 8px;
     }
 
-    .brand {
+    .logo-lockup {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 10px;
     }
 
-    .logo-circle {
+    .logo-mark {
       width: 32px;
       height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: conic-gradient(
+        from 220deg,
+        var(--accent-green),
+        var(--accent-red),
+        var(--accent-gold),
+        var(--accent-green)
+      );
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: #f9f9fb;
-    }
-
-    .brand-text-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .brand-text-sub {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.85rem;
-    }
-
-    nav a {
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
       position: relative;
-      padding-bottom: 0.08rem;
-      color: var(--text-muted);
+      overflow: hidden;
     }
 
-    nav a::after {
+    .logo-mark::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -0.2rem;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.18s ease;
+      inset: 1px;
+      border-radius: 11px;
+      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.16), transparent 50%);
     }
 
-    nav a:hover {
-      color: var(--accent);
+    .logo-mark span {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f5f5f5;
+      position: relative;
+      z-index: 1;
     }
 
-    nav a:hover::after {
-      width: 100%;
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform 120ms ease-out;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      transform: translateY(-1px);
     }
 
     .nav-cta {
-      padding: 0.3rem 0.9rem;
+      padding: 7px 14px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--text-main);
-      background: #f5f5f7;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        flex-wrap: wrap;
-      }
-    }
-
-    /* HERO */
-
-    #hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
-      gap: 2rem;
+      border: 1px solid rgba(213, 179, 108, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(213, 179, 108, 0.26), transparent 52%),
+        linear-gradient(115deg, rgba(13, 78, 57, 0.8), rgba(11, 24, 18, 0.9));
+      color: #fefaf1;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
       align-items: center;
-      padding-bottom: 2.1rem;
-      border-bottom: 1px solid #e5e5ea;
-      margin-bottom: 2.1rem;
+      gap: 6px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
     }
 
-    @media (max-width: 800px) {
-      #hero {
-        grid-template-columns: 1fr;
+    .nav-cta span {
+      font-size: 14px;
+    }
+
+    /* GRID LAYOUT MAIN */
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
       }
+    }
+
+    /* HERO LEFT */
+
+    .hero {
+      padding: 24px 22px 26px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(
+          135deg,
+          rgba(213, 179, 108, 0.08),
+          rgba(5, 7, 7, 0.9)
+        ),
+        var(--bg-elevated);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(183, 43, 50, 0.14), transparent 60%),
+        radial-gradient(circle at 100% 10%, rgba(13, 78, 57, 0.3), transparent 60%);
+      opacity: 0.8;
+      z-index: -1;
     }
 
     .hero-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(5, 7, 7, 0.7);
+      font-size: 11px;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--text-muted);
-      margin-bottom: 0.6rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-kicker-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 12px rgba(213, 179, 108, 0.9);
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 3.3vw + 1rem, 2.8rem);
-      line-height: 1.05;
+      font-size: clamp(30px, 4vw, 36px);
+      line-height: 1.1;
       letter-spacing: -0.03em;
-      margin-bottom: 0.7rem;
+      margin-bottom: 12px;
     }
 
     .hero-title span {
-      color: var(--accent);
+      background: linear-gradient(110deg, #f9f5ea, #f4e0b2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .hero-sub {
-      font-size: 0.95rem;
+    .hero-subtitle {
+      font-size: 14px;
       color: var(--text-muted);
       max-width: 32rem;
-      margin-bottom: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .hero-subtitle strong {
+      color: #f3e5c3;
+      font-weight: 500;
     }
 
     .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 10px;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      padding: 9px 18px;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 120ms ease-out, box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background-color var(--transition-fast),
+        color var(--transition-fast);
     }
 
     .btn-primary {
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      background: var(--accent);
-      color: #f9fafb;
-      font-weight: 500;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 12px 30px rgba(0, 113, 227, 0.4);
+      background: linear-gradient(120deg, var(--accent-green), #08130f);
+      border-color: rgba(213, 179, 108, 0.9);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      color: #fdfaf4;
     }
 
     .btn-primary:hover {
+      transform: translateY(-1.5px);
+      box-shadow: 0 26px 50px rgba(0, 0, 0, 1);
+    }
+
+    .btn-ghost {
+      background: rgba(5, 7, 7, 0.7);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
       transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(0, 113, 227, 0.5);
     }
 
-    .btn-outline {
-      padding: 0.65rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      font-size: 0.88rem;
-      color: var(--text-main);
-      cursor: pointer;
-      transition: background 0.15s ease;
-    }
-
-    .btn-outline:hover {
-      background: #f5f5f7;
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* HERO PREVIEW CARD */
-
-    .hero-preview {
-      border-radius: var(--radius-lg);
-      border: 1px solid #e5e5ea;
-      background: var(--surface-soft);
-      padding: 1rem 1rem 1.1rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .preview-header {
+    .hero-meta {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
       align-items: center;
-      margin-bottom: 0.6rem;
+      gap: 6px;
     }
 
-    .preview-title {
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--text-main);
+    .hero-meta-pill {
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(213, 179, 108, 0.5);
+      color: #f7f1df;
+      background: rgba(6, 10, 8, 0.9);
     }
 
-    .preview-dots {
-      display: flex;
-      gap: 0.25rem;
-    }
+    /* RIGHT COLUMN – SERVICES / HIGHLIGHTS */
 
-    .preview-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #d2d2d7;
-    }
-
-    .preview-window {
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 0.85rem;
-      border: 1px solid #e5e5ea;
+    .stack {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 18px;
     }
 
-    .preview-row {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 0.6rem;
+    .card {
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(18px);
     }
 
-    .preview-block {
-      border-radius: 10px;
-      background: #f2f2f7;
-      height: 40px;
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
     }
 
-    .preview-block-main {
-      height: 54px;
-    }
-
-    .preview-caption {
-      font-size: 0.78rem;
-      margin-top: 0.6rem;
-      color: var(--text-muted);
-    }
-
-    /* SECTION SHARED */
-
-    section {
-      margin-bottom: 2.1rem;
-    }
-
-    .section-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+    .card-title {
+      font-size: 13px;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--text-muted);
-      margin-bottom: 0.35rem;
     }
 
-    .section-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.35rem;
+    .card-badge {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(213, 179, 108, 0.6);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #f6efdf;
+      background: radial-gradient(circle at 0 0, rgba(213, 179, 108, 0.16), transparent 65%);
     }
-
-    .section-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 38rem;
-      margin-bottom: 1rem;
-    }
-
-    #about p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 40rem;
-    }
-
-    /* SERVICES */
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 0.9rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 520px) {
       .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    @media (max-width: 720px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .service-card {
-      border-radius: var(--radius-md);
-      border: 1px solid #e5e5ea;
-      background: #ffffff;
-      padding: 0.9rem 1rem;
-      font-size: 0.86rem;
+    .service-pill {
+      padding: 12px 12px 12px;
+      border-radius: var(--radius-lg);
+      background: var(--card-soft);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 12px;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 120ms ease-out, box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background-color var(--transition-fast);
     }
 
-    .service-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.1rem;
+    .service-pill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(13, 78, 57, 0.12),
+        rgba(5, 7, 7, 0.9)
+      );
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
     }
 
-    .service-desc {
-      font-size: 0.84rem;
+    .service-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 1);
+      border-color: rgba(213, 179, 108, 0.45);
+      background-color: rgba(12, 16, 14, 0.96);
+    }
+
+    .service-pill:hover::before {
+      opacity: 1;
+    }
+
+    .service-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
     }
 
-    .service-example-label {
-      font-size: 0.78rem;
+    .service-name {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .service-detail {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .service-meta {
+      font-size: 10px;
+      color: var(--accent-gold);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #a1a1a6;
-      margin-top: 0.25rem;
+      letter-spacing: 0.18em;
+      margin-top: 4px;
     }
 
-    .service-example {
-      font-size: 0.82rem;
-      color: var(--text-main);
+    .mini-list {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.6;
     }
 
-    .service-price {
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-top: 0.25rem;
+    .mini-list strong {
+      color: #f0e5d0;
+      font-weight: 500;
     }
 
-    .service-card:hover {
-      transform: translateY(-2px);
-      border-color: #c7c7cc;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    /* PORTFOLIO + PROCESS + CONTACT SECTION */
+
+    .section {
+      border-radius: var(--radius-xl);
+      background: rgba(5, 7, 7, 0.96);
+      border: 1px solid var(--border-soft);
+      padding: 22px 18px 22px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.8);
     }
 
-    /* SAMPLES */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
 
-    .samples-grid {
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 0.9rem;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
-    @media (max-width: 960px) {
-      .samples-grid {
+    @media (max-width: 880px) {
+      .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 720px) {
-      .samples-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .sample-card {
-      border-radius: var(--radius-md);
-      border: 1px solid #e5e5ea;
-      background: #ffffff;
-      padding: 0.85rem 0.9rem 0.9rem;
-      font-size: 0.84rem;
+    .portfolio-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, rgba(213, 179, 108, 0.15), transparent 60%),
+        #090c0a;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 10px 10px 12px;
+      font-size: 11px;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 120ms ease-out, box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background-color var(--transition-fast);
     }
 
-    .sample-card:hover {
+    .portfolio-card:hover {
       transform: translateY(-2px);
-      border-color: #c7c7cc;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.9);
+      border-color: rgba(213, 179, 108, 0.4);
+      background-color: #070a08;
     }
 
-    .sample-label {
-      font-size: 0.78rem;
+    .portfolio-tag {
+      font-size: 10px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #a1a1a6;
-    }
-
-    .sample-name {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .sample-visual {
-      border-radius: 12px;
-      border: 1px solid #e5e5ea;
-      background: #fbfbfd;
-      padding: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sample-caption {
-      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .sample-svg {
-      width: 100%;
-      height: auto;
-      display: block;
+    .portfolio-name {
+      font-size: 12px;
+      font-weight: 500;
     }
 
-    /* CONTACT */
+    .portfolio-meta {
+      font-size: 10px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
 
-    #contact .contact-card {
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 640px) {
+      .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .process-step {
       border-radius: var(--radius-lg);
-      border: 1px solid #e5e5ea;
-      background: var(--surface-soft);
-      padding: 1rem 1.15rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 36rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px 11px 12px;
+      font-size: 11px;
+      background: #090c0a;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    .contact-methods {
-      margin: 0.55rem 0 0.3rem;
+    .process-step-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .process-step-title {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .process-step-text {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .pill {
-      padding: 0.34rem 0.85rem;
-      border-radius: 999px;
-      background: #e5f0ff;
-      color: var(--accent);
-      font-size: 0.78rem;
-      border: 1px solid #d0e3ff;
-    }
-
-    .contact-note {
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-    }
-
-    footer {
-      margin-top: 1.5rem;
-      font-size: 0.78rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
       color: var(--text-muted);
-      text-align: center;
+      border-top: 1px dashed rgba(255, 255, 255, 0.09);
+      padding-top: 14px;
+      margin-top: 4px;
     }
 
-    /* REVEAL ANIMATIONS */
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-    .reveal {
+    .contact-chip {
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(4, 6, 6, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background-color var(--transition-fast),
+        transform 120ms ease-out,
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .contact-chip:hover {
+      background: rgba(10, 14, 12, 0.96);
+      transform: translateY(-1px);
+      border-color: rgba(213, 179, 108, 0.55);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.9);
+    }
+
+    .contact-chip.primary {
+      border-color: rgba(213, 179, 108, 0.8);
+      background: linear-gradient(120deg, #0f1813, #101914);
+      color: #f6f1e2;
+    }
+
+    /* SIMPLE FADE-IN ANIMATION */
+
+    .fade-in {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
+      transform: translateY(10px);
+      transition: opacity 600ms ease-out, transform 600ms ease-out;
     }
 
-    .reveal.is-visible {
+    .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    .reveal-delay-1 { transition-delay: 0.08s; }
-    .reveal-delay-2 { transition-delay: 0.16s; }
-    .reveal-delay-3 { transition-delay: 0.24s; }
   </style>
 </head>
 <body>
   <div class="page">
-    <div class="shell">
-      <header class="reveal is-visible">
-        <div class="brand">
-          <div class="logo-circle">DF</div>
-          <div>
-            <div class="brand-text-title">DIGITALFOUNDRY STUDIO</div>
-            <div class="brand-text-sub">Design & content support</div>
-          </div>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="logo-lockup">
+        <div class="logo-mark">
+          <span>DF</span>
         </div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#samples">Samples</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact" class="nav-cta">Work with me</a>
-        </nav>
-      </header>
+        <div>
+          <div class="logo-text-main">digitalFoundryStudio</div>
+          <div class="logo-text-sub">ai-powered creative studio</div>
+        </div>
+      </div>
 
-      <main>
-        <!-- HERO -->
-        <section id="hero" class="reveal reveal-delay-1">
-          <div>
-            <div class="hero-kicker">Independent studio</div>
-            <h1 class="hero-title">
-              Quiet, minimal help<br />
-              for <span>logos, docs, and visuals.</span>
-            </h1>
-            <p class="hero-sub">
-              DigitalFoundry Studio helps creators and small businesses clean up logos,
-              simplify documents, and polish visuals using AI as a tool and a human eye
-              on the final result.
-            </p>
-            <div class="hero-cta-row">
-              <a href="#contact"><button class="btn-primary">Send a project</button></a>
-              <a href="#services"><button class="btn-outline">View services</button></a>
-            </div>
-            <div class="hero-note">
-              Small, focused projects. Clear expectations. Most work turned around within 24–48 hours.
-            </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">
+          <span>●</span>
+          Let’s work
+        </a>
+      </nav>
+    </header>
+
+    <!-- GRID HERO + SIDE CARDS -->
+    <main class="grid">
+      <!-- HERO -->
+      <section class="hero fade-in">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          AI-crafted visuals & content for modern brands
+        </div>
+        <h1 class="hero-title">
+          <span>Premium content,</span> delivered fast with AI.
+        </h1>
+        <p class="hero-subtitle">
+          digitalFoundryStudio is your plug-and-play creative partner for
+          <strong>short-form video</strong>, <strong>AI visuals</strong>,
+          and <strong>ready-to-publish digital assets</strong> that look like
+          a full agency made them – without the agency price.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn-primary">
+            Book a small project
+            <span>↗</span>
+          </a>
+          <a href="#portfolio" class="btn-ghost">
+            View sample work
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta-pill">Beginner-friendly pricing</span>
+          <span>🚀 AI-powered · Human-curated</span>
+          <span>⏱ Typical delivery: 24–48h</span>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="stack">
+        <!-- SERVICES SNAPSHOT -->
+        <section class="card fade-in" id="services">
+          <div class="card-header">
+            <div class="card-title">Core services</div>
+            <div class="card-badge">Built with AI · Finished by hand</div>
           </div>
-
-          <!-- Visual mock preview -->
-          <aside class="hero-preview">
-            <div class="preview-header">
-              <div class="preview-title">Sample workspace</div>
-              <div class="preview-dots">
-                <div class="preview-dot"></div>
-                <div class="preview-dot"></div>
-                <div class="preview-dot"></div>
-              </div>
-            </div>
-            <div class="preview-window">
-              <div class="preview-block preview-block-main"></div>
-              <div class="preview-row">
-                <div class="preview-block"></div>
-                <div class="preview-block"></div>
-              </div>
-              <div class="preview-row">
-                <div class="preview-block"></div>
-                <div class="preview-block"></div>
-              </div>
-            </div>
-            <div class="preview-caption">
-              A simplified view of how your assets come in—logos, PDFs, images, clips—and
-              leave as cleaner, ready-to-use pieces.
-            </div>
-          </aside>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="reveal reveal-delay-1">
-          <div class="section-label">About</div>
-          <h2 class="section-title">A narrow, intentional offering.</h2>
-          <p class="section-sub">
-            DigitalFoundry is a one-person studio focused on a small set of things done well:
-            tightening what you already have instead of rebuilding everything from scratch.
-          </p>
-          <p>
-            Instead of offering every design service under the sun, I work on a few specific pieces:
-            logos that are “almost there,” PDFs that are too long to revisit, photos that are nearly
-            “profile ready,” and short clips that would land better with clean, readable captions.
-          </p>
-        </section>
-
-        <!-- SERVICES -->
-        <section id="services" class="reveal reveal-delay-2">
-          <div class="section-label">Services</div>
-          <h2 class="section-title">Where I can help.</h2>
-          <p class="section-sub">
-            Defined offerings that are easy to say yes to. You send what you have; I send back
-            something more considered and ready to use.
-          </p>
 
           <div class="services-grid">
-            <article class="service-card">
-              <div class="service-title">Logo cleanup & refresh</div>
-              <div class="service-desc">
-                Sharpen an existing logo, remove fuzziness, tidy proportions, and export clean
-                files (including transparent PNGs). Light modern tweaks if you want it updated,
-                not replaced.
+            <div class="service-pill">
+              <div class="service-label">Service · 01</div>
+              <div class="service-name">AI Visual Packs</div>
+              <div class="service-detail">
+                Car renders, thumbnails, social posts, and concept art in ready-to-post formats.
               </div>
-              <div class="service-example-label">Example</div>
-              <div class="service-example">
-                A blurry JPG from a business card turned into a clean, high-res logo set
-                for web, print, and social avatars.
-              </div>
-              <div class="service-price">From $12 · $20–$25 with new concepts</div>
-            </article>
-
-            <article class="service-card">
-              <div class="service-title">Document & PDF summaries</div>
-              <div class="service-desc">
-                Turn long PDFs, reports, or notes into structured bullet points and key ideas.
-                Useful for study, planning, or sharing with a team.
-              </div>
-              <div class="service-example-label">Example</div>
-              <div class="service-example">
-                A 30-page policy document distilled into a 2-page summary with sections for
-                “What matters now” and “Action items.”
-              </div>
-              <div class="service-price">$10 per 10 pages</div>
-            </article>
-
-            <article class="service-card">
-              <div class="service-title">AI-enhanced headshots</div>
-              <div class="service-desc">
-                Start from a decent photo and end up with professional-feeling headshots for
-                LinkedIn, CVs, websites, and profiles—without booking a studio.
-              </div>
-              <div class="service-example-label">Example</div>
-              <div class="service-example">
-                A casual outdoor selfie turned into clean, neutral-background portraits in
-                two or three slightly different looks.
-              </div>
-              <div class="service-price">$10–$15 · 2–3 final options</div>
-            </article>
-
-            <article class="service-card">
-              <div class="service-title">Short-form captioning</div>
-              <div class="service-desc">
-                Add clean, readable captions and subtle pacing to TikToks, Reels, or Shorts so
-                they’re watchable on mute and easier to follow.
-              </div>
-              <div class="service-example-label">Example</div>
-              <div class="service-example">
-                A 30–45 second vertical video given a title card, captions, and minimal
-                styling that still feels on-brand.
-              </div>
-              <div class="service-price">$10 per clip · 3 for $25</div>
-            </article>
-
-            <article class="service-card">
-              <div class="service-title">Business card layouts</div>
-              <div class="service-desc">
-                Clean, legible layouts that pair with your logo and print well in both color
-                and black & white.
-              </div>
-              <div class="service-example-label">Example</div>
-              <div class="service-example">
-                A simple front–back design with your logo, key contact info, and hierarchy
-                that stays readable at small sizes.
-              </div>
-              <div class="service-price">$20 per layout · $30–$35 with logo</div>
-            </article>
-          </div>
-        </section>
-
-        <!-- SAMPLES -->
-        <section id="samples" class="reveal reveal-delay-2">
-          <div class="section-label">Sample work</div>
-          <h2 class="section-title">What the work can look like.</h2>
-          <p class="section-sub">
-            These are representative examples to show the level of polish you can expect.
-            Real projects will be tailored to your brand, content, and audience.
-          </p>
-
-          <div class="samples-grid">
-            <!-- Sample 1: Logo cleanup -->
-            <article class="sample-card">
-              <div class="sample-label">Logo cleanup</div>
-              <div class="sample-name">“Cedar Lane Studio” mark</div>
-              <div class="sample-visual">
-                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Background split -->
-                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
-                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
-                  <!-- BEFORE -->
-                  <text x="24" y="26" font-size="10" fill="#a1a1a6">Before</text>
-                  <rect x="22" y="36" width="90" height="50" rx="8" fill="#e5e5ea" />
-                  <text x="29" y="63" font-size="14" fill="#8e8e93" font-weight="600">cedar lane</text>
-                  <text x="29" y="78" font-size="10" fill="#c7c7cc">studio</text>
-                  <!-- AFTER -->
-                  <text x="154" y="26" font-size="10" fill="#a1a1a6">After</text>
-                  <rect x="148" y="36" width="90" height="50" rx="10" fill="#ffffff" stroke="#d2d2d7" />
-                  <!-- Simple logo mark -->
-                  <circle cx="162" cy="61" r="9" fill="#0071e3" />
-                  <path d="M158 61 L161 64 L166 58" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                  <text x="177" y="58" font-size="13" fill="#1d1d1f" font-weight="600">Cedar Lane</text>
-                  <text x="177" y="73" font-size="9" fill="#8e8e93">Studio</text>
-                </svg>
-              </div>
-              <div class="sample-caption">
-                Rough, low-res logo redrawn as a clean wordmark with a small icon, tuned for clarity
-                and export at multiple sizes.
-              </div>
-            </article>
-
-            <!-- Sample 2: PDF summary -->
-            <article class="sample-card">
-              <div class="sample-label">PDF summary</div>
-              <div class="sample-name">“Launch Playbook” outline</div>
-              <div class="sample-visual">
-                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
-                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
-                  <!-- BEFORE document -->
-                  <text x="24" y="22" font-size="10" fill="#a1a1a6">Before</text>
-                  <rect x="22" y="30" width="90" height="80" rx="8" fill="#ffffff" stroke="#e5e5ea" />
-                  <!-- many lines -->
-                  <rect x="28" y="38" width="60" height="6" rx="3" fill="#e5e5ea" />
-                  <rect x="28" y="50" width="70" height="5" rx="2.5" fill="#e5e5ea" />
-                  <rect x="28" y="60" width="65" height="5" rx="2.5" fill="#e5e5ea" />
-                  <rect x="28" y="70" width="72" height="5" rx="2.5" fill="#e5e5ea" />
-                  <rect x="28" y="80" width="68" height="5" rx="2.5" fill="#e5e5ea" />
-                  <rect x="28" y="90" width="74" height="5" rx="2.5" fill="#e5e5ea" />
-                  <!-- AFTER summary -->
-                  <text x="154" y="22" font-size="10" fill="#a1a1a6">After</text>
-                  <rect x="148" y="30" width="90" height="80" rx="8" fill="#ffffff" stroke="#d2d2d7" />
-                  <!-- title -->
-                  <rect x="154" y="38" width="55" height="7" rx="3.5" fill="#0071e3" />
-                  <!-- bullets -->
-                  <circle cx="158" cy="56" r="2" fill="#d1d1d6" />
-                  <rect x="164" y="53" width="55" height="5" rx="2.5" fill="#e5e5ea" />
-                  <circle cx="158" cy="68" r="2" fill="#d1d1d6" />
-                  <rect x="164" y="65" width="48" height="5" rx="2.5" fill="#e5e5ea" />
-                  <circle cx="158" cy="80" r="2" fill="#d1d1d6" />
-                  <rect x="164" y="77" width="52" height="5" rx="2.5" fill="#e5e5ea" />
-                </svg>
-              </div>
-              <div class="sample-caption">
-                Dense, multi-page content reduced to a structured overview with clear title and
-                three main sections of takeaways.
-              </div>
-            </article>
-
-            <!-- Sample 3: Headshot -->
-            <article class="sample-card">
-              <div class="sample-label">AI headshot</div>
-              <div class="sample-name">Profile refresh</div>
-              <div class="sample-visual">
-                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
-                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
-                  <!-- Original -->
-                  <text x="24" y="24" font-size="10" fill="#a1a1a6">Original</text>
-                  <rect x="30" y="36" width="54" height="54" rx="12" fill="#e5e5ea" />
-                  <circle cx="57" cy="58" r="11" fill="#d1d1d6" />
-                  <rect x="42" y="70" width="30" height="10" rx="5" fill="#d1d1d6" />
-                  <!-- Refined -->
-                  <text x="154" y="24" font-size="10" fill="#a1a1a6">Refined</text>
-                  <rect x="150" y="30" width="80" height="70" rx="14" fill="#ffffff" stroke="#d2d2d7" />
-                  <circle cx="190" cy="58" r="15" fill="#e5f0ff" />
-                  <circle cx="190" cy="54" r="7" fill="#ffffff" />
-                  <rect x="176" y="70" width="28" height="6" rx="3" fill="#d1e2ff" />
-                  <rect x="168" y="80" width="44" height="4" rx="2" fill="#e5e5ea" />
-                </svg>
-              </div>
-              <div class="sample-caption">
-                Casual phone photo turned into a clean profile-style headshot with neutral framing
-                and simple background.
-              </div>
-            </article>
-
-            <!-- Sample 4: Captioned clip -->
-            <article class="sample-card">
-              <div class="sample-label">Captioned clip</div>
-              <div class="sample-name">Vertical video snippet</div>
-              <div class="sample-visual">
-                <svg class="sample-svg" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0" y="0" width="260" height="120" rx="11" fill="#f5f5f7" />
-                  <line x1="130" y1="12" x2="130" y2="108" stroke="#e5e5ea" stroke-width="1" />
-                  <!-- Raw clip -->
-                  <text x="24" y="22" font-size="10" fill="#a1a1a6">Raw clip</text>
-                  <rect x="38" y="30" width="40" height="80" rx="8" fill="#e5e5ea" />
-                  <rect x="44" y="60" width="28" height="10" rx="5" fill="#d1d1d6" />
-                  <!-- With captions -->
-                  <text x="154" y="22" font-size="10" fill="#a1a1a6">With captions</text>
-                  <rect x="170" y="24" width="40" height="92" rx="10" fill="#ffffff" stroke="#d2d2d7" />
-                  <!-- title bar -->
-                  <rect x="174" y="29" width="32" height="6" rx="3" fill="#0071e3" />
-                  <!-- "video" area -->
-                  <rect x="176" y="40" width="28" height="28" rx="6" fill="#f2f2f7" />
-                  <!-- captions -->
-                  <rect x="176" y="74" width="28" height="5" rx="2.5" fill="#e5e5ea" />
-                  <rect x="176" y="82" width="28" height="5" rx="2.5" fill="#e5e5ea" />
-                  <rect x="176" y="90" width="24" height="4" rx="2" fill="#e5e5ea" />
-                </svg>
-              </div>
-              <div class="sample-caption">
-                Simple vertical video given a title bar and subtitles so it works both with and
-                without sound on TikTok, Reels, or Shorts.
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="reveal reveal-delay-3">
-          <div class="section-label">Contact</div>
-          <h2 class="section-title">Lightweight to get started.</h2>
-          <p class="section-sub">
-            A short email with what you have and what you’d like it to become is enough.
-            I’ll reply with a simple confirmation, a price, and a timeline.
-          </p>
-
-          <div class="contact-card">
-            <p>
-              Email:
-              <a href="mailto:digitalfoundrystudio@gmail.com">
-                digitalfoundrystudio@gmail.com
-              </a>
-            </p>
-            <div class="contact-methods">
-              <div class="pill">Venmo</div>
-              <div class="pill">PayPal</div>
-              <div class="pill">Cash App</div>
+              <div class="service-meta">Includes: 5–20 image bundles</div>
             </div>
-            <p class="contact-note">
-              Use the same studio name and email on Reddit, Fiverr, and other platforms so
-              people always land in the same place.
-            </p>
+            <div class="service-pill">
+              <div class="service-label">Service · 02</div>
+              <div class="service-name">Short-form Video</div>
+              <div class="service-detail">
+                15–60 second clips with captions, music, and hooks tailored to your niche.
+              </div>
+              <div class="service-meta">Perfect for TikTok / Reels / Shorts</div>
+            </div>
+            <div class="service-pill">
+              <div class="service-label">Service · 03</div>
+              <div class="service-name">Scripts & Captions</div>
+              <div class="service-detail">
+                Scroll-stopping hooks, scripts, and caption banks for your content pipeline.
+              </div>
+              <div class="service-meta">Great for creators & brands</div>
+            </div>
+            <div class="service-pill">
+              <div class="service-label">Service · 04</div>
+              <div class="service-name">Templates & Systems</div>
+              <div class="service-detail">
+                Plug-and-play content calendars and simple budget/asset trackers.
+              </div>
+              <div class="service-meta">Delivered as Notion / Sheets / PDF</div>
+            </div>
           </div>
-        </section>
-      </main>
 
-      <footer class="reveal reveal-delay-3">
-        © 2025 DigitalFoundry Studio · Design & content support
-      </footer>
-    </div>
+          <p class="mini-list">
+            <strong>Starter services:</strong> AI image packs ·
+            video snippet edits · caption/script bundles · simple
+            templates. Perfect for Reddit, Fiverr, or direct clients.
+          </p>
+        </section>
+
+        <!-- SNAPSHOT / ABOUT -->
+        <section class="card fade-in" id="about">
+          <div class="card-header">
+            <div class="card-title">About the studio</div>
+            <div class="card-badge">Solo operator · AI-native</div>
+          </div>
+          <p class="mini-list">
+            digitalFoundryStudio is a one-person creative studio using AI as a force
+            multiplier – not a replacement. Every project is generated with powerful AI tools,
+            then edited, curated, and polished by hand before delivery.
+          </p>
+          <p class="mini-list">
+            As a client, you get <strong>fast turnarounds</strong>, 
+            <strong>clear communication</strong>, and <strong>simple pricing</strong> 
+            that’s perfect if you’re just starting out or testing new ideas.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <!-- PORTFOLIO / PROCESS / CONTACT -->
+    <section class="section fade-in" id="portfolio">
+      <div class="section-header">
+        <div class="section-title">Sample work preview</div>
+        <div class="section-subtitle">
+          Placeholder projects – replace with your real samples as you create them.
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="portfolio-tag">AI visuals · car renders</div>
+          <div class="portfolio-name">“Night Shift GT” Instagram Pack</div>
+          <div>
+            Moody AI-generated car shots optimized for carousel posts and Reels covers.
+          </div>
+          <div class="portfolio-meta">12-image set · ready to post</div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-tag">Short-form video</div>
+          <div class="portfolio-name">Motivational Quote Reels</div>
+          <div>
+            Vertical clips with animated quotes, subtle motion, and clean typography.
+          </div>
+          <div class="portfolio-meta">15–30s · ideal for TikTok/IG</div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-tag">Scripts & hooks</div>
+          <div class="portfolio-name">Content Hook Bank</div>
+          <div>
+            A swipe file of hooks and captions for history, AI, and business channels.
+          </div>
+          <div class="portfolio-meta">50+ hooks · plug & play</div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-tag">Templates</div>
+          <div class="portfolio-name">Solo Creator Content Calendar</div>
+          <div>
+            30-day posting calendar designed for TikTok, Reels, and YouTube Shorts.
+          </div>
+          <div class="portfolio-meta">Notion / Google Sheets</div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-tag">Finance tools</div>
+          <div class="portfolio-name">Personal Budget Tracker</div>
+          <div>
+            Clean, category-based tracker for expenses and income – perfect for beginners.
+          </div>
+          <div class="portfolio-meta">Google Sheets · color coded</div>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-tag">Brand kit</div>
+          <div class="portfolio-name">Minimal Logo & Social Kit</div>
+          <div>
+            Simple logo concepts plus profile & banner images tailored to the client’s niche.
+          </div>
+          <div class="portfolio-meta">Logo + 3 social assets</div>
+        </article>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-step-label">Step · 01</div>
+          <div class="process-step-title">Quick brief</div>
+          <p class="process-step-text">
+            You share a short description of your brand or project, plus 1–2 examples you like.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-label">Step · 02</div>
+          <div class="process-step-title">AI-assisted creation</div>
+          <p class="process-step-text">
+            I generate concepts using AI tools, then refine and curate the best options for you.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-label">Step · 03</div>
+          <div class="process-step-title">Polish & delivery</div>
+          <p class="process-step-text">
+            You receive export-ready files (images, video, or templates) plus one round of light tweaks.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-row" id="contact">
+        <div>
+          Ready to test a small project first? Start with a
+          <strong>simple AI image pack</strong> or a
+          <strong>single short-form video</strong> and scale from there.
+        </div>
+        <div class="contact-actions">
+          <a
+            href="mailto:hello@digitalfoundrystudio.com?subject=Project%20Inquiry&body=Tell%20me%20a%20bit%20about%20your%20brand%20and%20what%20you%E2%80%99re%20looking%20for%20(e.g.%20AI%20images,%20short-form%20video,%20scripts,%20templates)%3A"
+            class="contact-chip primary"
+          >
+            Email the studio
+          </a>
+          <a href="#services" class="contact-chip">
+            View services again
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
 
+  <!-- Simple scroll-trigger for fade-in elements -->
   <script>
-    // Simple scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
+    const fadeEls = document.querySelectorAll('.fade-in');
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
@@ -905,11 +927,7 @@
       { threshold: 0.12 }
     );
 
-    revealEls.forEach((el) => {
-      if (!el.classList.contains('is-visible')) {
-        observer.observe(el);
-      }
-    });
+    fadeEls.forEach((el) => observer.observe(el));
   </script>
 </body>
-</html>
+            </html>
